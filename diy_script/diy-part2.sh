@@ -11,13 +11,16 @@
 #
 
 # Modify default IP
-sed -i 's/192.168.1.1/10.10.0.253/g' package/base-files/files/bin/config_generate
+sed -i 's/192.168.1.1/192.168.3.1/g' package/base-files/files/bin/config_generate
 
 # Modify default passwd
 sed -i '/$1$V4UetPzk$CYXluq4wUazHjmCDBCqXF./ d' package/lean/default-settings/files/zzz-default-settings
 
 # Temporary repair https://github.com/coolsnowwolf/lede/issues/8423
 # sed -i 's/^\s*$[(]call\sEnsureVendoredVersion/#&/' feeds/packages/utils/dockerd/Makefile
+
+sed -i '$a src-git jd https://github.com/jerrykuku/luci-app-jd-dailybonus' feeds.conf.default
+
 
 
 # 添加新主题
